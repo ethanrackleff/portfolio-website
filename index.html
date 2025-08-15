@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="US">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Ethan Rackleff Portfolio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+        <style>
+            /*Default Colors & Color palettes*/
+            :root{
+                --bg: #fff;
+                --text: #000;
+                --accent: #ccc;
+                --prompt: #000;
+                --cursor: #000;
+                --shadow: #000;
+            }
+            body[theme="matrix"] {
+                --bg: #000;
+                --text: #b7ffb7;
+                --muted: #7ccc7c;
+                --accent: #22ff88;
+                --prompt: #00ff99;
+                --cursor: #b7ffb7;
+            }
+
+            /* Page */
+            html, body {
+                height: 100%;
+                margin: 0px;
+            }
+            body {
+                background: var(--bg) fixed;
+                color: var(--text); 
+                font: 15px monospace;
+                display: grid;
+                place-items: center;
+            }
+            .term {
+                width: min(600px, 92vw);
+                height: min(600px, 80vh);
+                border: 2px solid black;
+                padding: 0px;
+            }
+            h1 {
+
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="term">
+            <h1>Title bar.</h1>
+            <h2>~/portfolio</h2>
+            <p>$ type help</p>
+        </div>
+        <div class="screen"></div>
+        
+        <div class="inputRow">
+            <div class="prompt" aria-hidden="true">
+                <div class="input">
+                    <input id="cmd" type="text" autocomplete="off" spellcheck="false"> </input>
+                    <span class="caret" aria-hidden="true"></span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
