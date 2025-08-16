@@ -23,46 +23,65 @@
                 --prompt: #00ff99;
                 --cursor: #b7ffb7;
             }
-
             /* Page */
             html, body {
                 height: 100%;
                 margin: 0px;
+                font-size: 15px;
+                font-family: monospace, sans-serif;
+                font-weight: normal;
             }
             body {
                 background: var(--bg) fixed;
                 color: var(--text); 
-                font: 15px monospace;
                 display: grid;
                 place-items: center;
             }
             .term {
                 width: min(600px, 92vw);
                 height: min(600px, 80vh);
-                border: 2px solid black;
-                padding: 0px;
+                background-color: var(--bg);
+                border: 2px solid var(--accent);
+                padding: 1em;
+                filter: drop-shadow(5px 5px var(--accent));
+                display: grid;
+                overflow-y: auto;
+                word-break: normal;
+                overflow-wrap: anywhere;
+                scrollbar-width: none;
+                align-content: start;
             }
-            h1 {
-
+            .line {
+                width: 100%;
+                display: flex;
             }
-            
+            .line > * {
+                padding-right: 1em;
+            }
+            .prompt {
+               flex-shrink: 0;
+            }
+            .line input {
+                flex: 1;
+                border: none;
+            }
         </style>
     </head>
     <body>
         <div class="term">
-            <h1>Title bar.</h1>
-            <h2>~/portfolio</h2>
-            <p>$ type help</p>
-        </div>
-        <div class="screen"></div>
-        
-        <div class="inputRow">
-            <div class="prompt" aria-hidden="true">
-                <div class="input">
-                    <input id="cmd" type="text" autocomplete="off" spellcheck="false"> </input>
-                    <span class="caret" aria-hidden="true"></span>
-                </div>
+            <div class="line">
+                <div class="prompt">$</div>
+                <div class="welcome">type help</div>
+            </div>
+            <div class="line">
+                <div class="prompt">$</div>
+                <input 
+                    type="text"
+                    name="cmd"
+                    autofocus
+                    required
+                    />
             </div>
         </div>
-    </body>
+        </body>
 </html>
