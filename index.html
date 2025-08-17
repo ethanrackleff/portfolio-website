@@ -93,25 +93,34 @@
             const bootMessage = ["Welcome to my portfolio", 
                 "My name is Ethan Rackleff", 
                 "type help"]
-            
-            /*Prints Introduction Message*/
-            function boot(arr) {
-                
+            function print(arr, end=true) {
                 for (const l of arr) {
                     const cmdPrompt = document.createElement("div");
                     cmdPrompt.className = "cmdPrompt";
                     cmdPrompt.textContent = "$";
-                    const welcome = document.createElement("div");
-                    welcome.className = "welcome";
-                    welcome.textContent = l;
+                    const text = document.createElement("div");
+                    text.className = "text";
+                    text.textContent = l;
                     const line = document.createElement("div");
                     line.className = "line";
                     line.appendChild(cmdPrompt);
-                    line.appendChild(welcome);
-                    term.insertBefore(line, firstCmd);
+                    line.appendChild(text); 
+                    if (end) {
+                        term.appendChild(line);
+                    }
+                    else {
+                        term.insertBefore(line, firstCmd);
+                    }
                 }
             }
-  
+            //Prints Introduction Message
+            function boot(arr) { 
+               print(arr, false); 
+            }
+
+            function runCommand(cmd) {
+                
+            }
             
             boot(bootMessage);
         </script>
