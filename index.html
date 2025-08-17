@@ -68,31 +68,29 @@
                 border: none;
                 outline: none;
             }
+            input:disabled {
+                color: inherit;
+                font-size: inherit;
+            }
             
         </style>
     </head>
     <body>
         <div class="term" id="term">
-            <div class="line" id="firstCmd">
-                <div class="cmdPrompt">$</div>
-                <input 
-                    type="text"
-                    name="cmd"
-                    id="cmd"
-                    autofocus
-                    required
-                    />
-            </div>
+
         </div>
         <script>
             const COMMANDS = ["about", "help", "clear", "switch-colors"];
             const term = document.getElementById("term");
-            const input = document.getElementById("cmd");
-            const firstCmd = document.getElementById("firstCmd");
 
             const bootMessage = ["Welcome to my portfolio", 
                 "My name is Ethan Rackleff", 
                 "type help"]
+
+            //Prints to terminal. 
+            //Takes a string of arrays
+            //if end=true, string is printed at the bottom of the terminal
+            //if end=false, string is printed at the top
             function print(arr, end=true) {
                 for (const l of arr) {
                     const cmdPrompt = document.createElement("div");
@@ -115,13 +113,57 @@
             }
             //Prints Introduction Message
             function boot(arr) { 
-               print(arr, false); 
+                print(arr);
+               newInput(); 
+            }
+            
+            function newInput(prev) {
+                if (prev) {
+                    prev.blur();
+                    prev.disabled = true;
+                    prev.removeEventListener("keydown", (event) => {
+                    if (event.key === "Enter") {
+                        runCommand(input.value);
+                        }
+                    }); 
+                }
+                
+                const cmdPrompt = document.createElement("div");
+                cmdPrompt.className = "cmdPrompt";
+                cmdPrompt.textContent = "$";
+                const cmd = document.createElement("input");
+                cmd.className = "cmd";
+                const line = document.createElement("div");
+                line.className = "line";
+                line.appendChild(cmdPrompt);
+                line.appendChild(cmd); 
+                term.appendChild(line);
+                cmd.focus();
+                cmd.addEventListener("keydown", (event) => {
+                    if (event.key === "Enter") {
+                        runCommand(cmd);
+                    }
+                });
+
             }
 
             function runCommand(cmd) {
+                if (cmd.value.startsWith("help")) {
+                    print(["Testing"]);
+                }
+                else if (cmd.value.startsWith("theme")) {
+                    //theme(cmd);
+                    print(["theme"]);
+                }
+                else {
+                    //this case prints one char too much to the left
+                    //FIX!
+                    print([`${cmd.value} bad command`]);
+                }
                 
+                newInput(cmd);
             }
-            
+
             boot(bootMessage);
         </script>
         </body>
