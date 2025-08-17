@@ -58,7 +58,7 @@
             .line > * {
                 padding-right: 1em;
             }
-            .prompt {
+            .cmdPrompt {
                flex-shrink: 0;
             }
             .line input {
@@ -68,20 +68,48 @@
         </style>
     </head>
     <body>
-        <div class="term">
-            <div class="line">
-                <div class="prompt">$</div>
-                <div class="welcome">type help</div>
-            </div>
-            <div class="line">
-                <div class="prompt">$</div>
+        <div class="term" id="term">
+            <div class="line" id="firstCmd">
+                <div class="cmdPrompt">$</div>
                 <input 
                     type="text"
                     name="cmd"
+                    id="cmd"
                     autofocus
                     required
                     />
             </div>
         </div>
+        <script>
+            const COMMANDS = ["about", "help", "clear", "switch-colors"];
+            const term = document.getElementById("term");
+            const input = document.getElementById("cmd");
+            const firstCmd = document.getElementById("firstCmd");
+
+            const bootMessage = ["Welcome to my portfolio", 
+                "My name is Ethan Rackleff", 
+                "type help"]
+            
+            /*Prints Introduction Message*/
+            function boot(arr) {
+                
+                for (const l of arr) {
+                    const cmdPrompt = document.createElement("div");
+                    cmdPrompt.className = "cmdPrompt";
+                    cmdPrompt.textContent = "$";
+                    const welcome = document.createElement("div");
+                    welcome.className = "welcome";
+                    welcome.textContent = l;
+                    const line = document.createElement("div");
+                    line.className = "line";
+                    line.appendChild(cmdPrompt);
+                    line.appendChild(welcome);
+                    term.insertBefore(line, firstCmd);
+                }
+            }
+  
+
+            boot(bootMessage);
+        </script>
         </body>
 </html>
