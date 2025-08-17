@@ -24,12 +24,14 @@
                 --cursor: #b7ffb7;
             }
             /* Page */
-            html, body {
-                height: 100%;
-                margin: 0px;
+            * {
                 font-size: 15px;
                 font-family: monospace, sans-serif;
                 font-weight: normal;
+            }
+            html, body {
+                height: 100%;
+                margin: 0px;
             }
             body {
                 background: var(--bg) fixed;
@@ -64,7 +66,9 @@
             .line input {
                 flex: 1;
                 border: none;
+                outline: none;
             }
+            
         </style>
     </head>
     <body>
@@ -108,7 +112,7 @@
                 }
             }
   
-
+            
             boot(bootMessage);
         </script>
         </body>
