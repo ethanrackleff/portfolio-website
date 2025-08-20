@@ -106,7 +106,7 @@
             <div class="term" id="term"></div>
         </div>
         <script>
-            //To-do: implement about, clear, gui, projects
+            //To-do: implement clear, gui, projects, experience
             const COMMANDS = ["about", "help", "clear", "theme"];
             const themes = new Map();
             themes.set("matrix", ["#000", "#b7ffb7", "#7ccc7c","22ff88", "#00ff99", "#b7ffb7"]);
@@ -187,7 +187,7 @@
                 //After theme, a space must follow
                 //e.g. theme set matrix
                 if (!(cmd[0] === " ")) {
-                    print(["error: no operation specified (use --help for help)"]);
+                    print(["theme: no operation specified (type theme --help for help)"]);
                     return;
                 }
                 //Remove space from front
@@ -213,11 +213,13 @@
                     }
                 }
                 else if (cmd === "list") {
-                    let list = ["These are the available themes:"];
+                    let list = "These are the available themes:";
+                    list = list + `<ul>`;
                     for (const [key] of themes) {
-                        list.push(`\t ${key}`);
+                        list = list + `<li>${key}</li>`;
                     }
-                    print(list);
+                    list = list + `</ul>`;
+                    print([list]);
                 }
                 else if (cmd === "--help") {
                     print(["usage: theme <operation> [...]", "operations:", "theme {--help}", "theme {set} [options]", "theme {list}"]); 
