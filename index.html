@@ -70,6 +70,8 @@
                 outline: none;
                 background: inherit;
                 color: inherit;
+                margin: 0px;
+                padding: 0px;
             }
             input:disabled {
                 color: inherit;
@@ -103,10 +105,10 @@
                 for (const l of arr) {
                     const cmdPrompt = document.createElement("div");
                     cmdPrompt.className = "cmdPrompt";
-                    cmdPrompt.textContent = "$";
+                    cmdPrompt.innerHTML = "$";
                     const text = document.createElement("div");
                     text.className = "text";
-                    text.textContent = l;
+                    text.innerHTML = l;
                     const line = document.createElement("div");
                     line.className = "line";
                     line.appendChild(cmdPrompt);
@@ -206,6 +208,10 @@
                     }
             }
 
+            function about() {
+                print(["I am a current Math major with minors in Computer Science and Economics at Colgate University expected to graduate in December 2025.", "<b>Experience:</b>", "hey"]);
+            }
+
 
             function runCommand(cmd) {
                 errorMsg = [`${cmd.value}: command not found`];
@@ -218,6 +224,9 @@
                 else if (cmdText.startsWith("theme")) {
                     //Call setTheme with the argument being the text after "theme"
                     setTheme(cmdText.slice(5))
+                }
+                else if (cmdText == "about") {
+                   about(); 
                 }
                 else {
                     //this case prints one char too much to the left
