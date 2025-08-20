@@ -83,7 +83,8 @@
 
         </div>
         <script>
-            const COMMANDS = ["about", "help", "clear", "switch-colors"];
+            //To-do: implement about, clear, gui, projects
+            const COMMANDS = ["about", "help", "clear", "theme"];
             const themes = new Map();
             themes.set("matrix", ["#000", "#b7ffb7", "#7ccc7c","22ff88", "#00ff99", "#b7ffb7"]);
             themes.set("eink", ["#fff", "#000", "#ccc", "#000", "#000", "#000"]);
@@ -154,27 +155,6 @@
 
             }
 
-            function runCommand(cmd) {
-                errorMsg = [`${cmd.value}: command not found`];
-                //Allow white space at end and beginning of command
-                let cmdText = cmd.value.trim();
-
-                if (cmdText.startsWith("help")) {
-                    print(["Testing"]);
-                }
-                else if (cmdText.startsWith("theme")) {
-                    //Call setTheme with the argument being the text after "theme"
-                    setTheme(cmdText.slice(5))
-                }
-                else {
-                    //this case prints one char too much to the left
-                    //FIX!
-                    print(errorMsg);
-                }
-                
-                newInput(cmd);
-            }
-
             function setTheme(cmd) {
                 //After theme, a space must follow
                 //e.g. theme set matrix
@@ -219,6 +199,36 @@
                 }
             }
 
+            function help() {
+                print(["My portfolio is meant to emulate a terminal, a way in which many people interact with their computer. Instead of clicking icons to make stuff happen, you type text to make stuff happen. Here are some of the commands you can try typing:"]);
+                    for (const c of COMMANDS){
+                        print([c]);
+                    }
+            }
+
+
+            function runCommand(cmd) {
+                errorMsg = [`${cmd.value}: command not found`];
+                //Allow white space at end and beginning of command
+                let cmdText = cmd.value.trim();
+
+                if (cmdText == "help") {
+                    help();    
+                }
+                else if (cmdText.startsWith("theme")) {
+                    //Call setTheme with the argument being the text after "theme"
+                    setTheme(cmdText.slice(5))
+                }
+                else {
+                    //this case prints one char too much to the left
+                    //FIX!
+                    print(errorMsg);
+                }
+                
+                newInput(cmd);
+            }
+
+            
             boot(bootMessage);
         </script>
         </body>
