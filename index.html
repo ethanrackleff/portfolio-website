@@ -195,7 +195,7 @@
                 //
                 if (cmd.startsWith("set")) {
                     if (cmd.length <= 3) {
-                        print([`theme set: no given theme. Try theme list to see available themes.`]);
+                        print([`theme set: no given theme (type theme list to see available themes)`]);
                     }
                     else {
                         let theme = cmd.slice(4);
@@ -208,7 +208,7 @@
                         document.documentElement.style.setProperty("--shadow", themes.get(theme)[5]);
                         }
                         else {
-                            print([`${theme} not found`]);                  
+                            print([`theme set: ${theme} not a valid theme (type theme list to see available themese`]);                  
                         }
                     }
                 }
@@ -221,11 +221,11 @@
                     list = list + `</ul>`;
                     print([list]);
                 }
-                else if (cmd === "--help") {
-                    print(["usage: theme <operation> [...]", "operations:", "theme {--help}", "theme {set} [options]", "theme {list}"]); 
+                else if (cmd === "help") {
+                    print(["usage: theme <operation> [...] <br> operations: <ul><li>theme help</li> <li>theme set [options]</li> <li>theme list</li> </ul>"]); 
                 }
                 else {
-                    print([`theme: ${cmd} not valid (use --help for help)`]);
+                    print([`theme: ${cmd} not valid (type theme --help for help)`]);
                 }
             }
 
