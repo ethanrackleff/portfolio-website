@@ -54,6 +54,9 @@
                 scrollbar-width: none;
                 align-content: start;
             }
+            .wrapper {
+                
+            }
             .line {
                 width: 100%;
                 display: flex;
@@ -100,12 +103,15 @@
                 "My name is Ethan Rackleff", 
                 "type help"]
 
+            let id = 0
+
             //Prints to terminal. 
             //Takes a string of arrays
             //if end=true, string is printed at the bottom of the terminal
             //if end=false, string is printed at the top
             function print(arr, end=true) {
                 for (const l of arr) {
+                    id++; 
                     const cmdPrompt = document.createElement("div");
                     cmdPrompt.className = "cmdPrompt";
                     cmdPrompt.innerHTML = "$";
@@ -116,6 +122,7 @@
                     line.className = "line";
                     line.appendChild(cmdPrompt);
                     line.appendChild(text); 
+                    line.id = `${id}`;
                     if (end) {
                         term.appendChild(line);
                     }
@@ -140,7 +147,7 @@
                         }
                     }); 
                 }
-                
+                id++; 
                 const cmdPrompt = document.createElement("div");
                 cmdPrompt.className = "cmdPrompt";
                 cmdPrompt.textContent = "$";
@@ -150,6 +157,7 @@
                 line.className = "line";
                 line.appendChild(cmdPrompt);
                 line.appendChild(cmd); 
+                line.id = `${id}`;
                 term.appendChild(line);
                 cmd.focus();
                 cmd.addEventListener("keydown", (event) => {
@@ -220,7 +228,11 @@
             }
 
             function clear() {
-
+                for (let i = 1; i <= id; i++) {
+                    let elem = document.getElementById(`${i}`);
+                    elem.remove();
+                }
+                id = 0;
             }
 
             function runCommand(cmd) {
