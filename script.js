@@ -40,7 +40,7 @@
             }
             //Prints Introduction Message
             function boot(arr) { 
-                print(arr);
+               print(arr);
                newInput(); 
             }
             
@@ -209,6 +209,35 @@
                 }
                 id = 0;
             }
+            
+            
+            function gui() {
+                const screen = document.getElementById("screen");
+                screen.remove();
+                const desktop = document.createElement("div");
+                const folders = ["projects", "experience"];
+                desktop.className = "desktop";
+                desktop.id = "desktop";
+                document.body.appendChild(desktop);
+                for (const f of folders){
+                    const folder = document.createElement("button");
+                    folder.id = f;
+                    folder.className = "folder";
+                    const svg = document.createElement("svg");
+                    const img = document.createElement("img");
+                    img.href = "folder-alt-svgrepo-com.svg";
+                    svg.appendChild(img);
+                    const name = document.createElement("h3");
+                    name.innerHTML = `${f}`; 
+                    name.className = "folderTitle";
+                    
+                    desktop.appendChild(folder);
+                    folder.appendChild(img);
+                    folder.appendChild(name);
+
+
+                }
+            }
 
             function runCommand(cmd) {
                 errorMsg = [`${cmd.value}: command not found`];
@@ -237,6 +266,9 @@
                 else if (cmdText == "skills") {
                     skills();
                 }
+                /*else if (cmdText == "gui") {
+                    gui();
+                }*/
                 else {
                     print(errorMsg);
                 }
