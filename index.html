@@ -69,8 +69,8 @@
                 overflow-wrap: anywhere;
                 scrollbar-width: none;
                 align-content: start;
-
             }
+
             .line {
                 width: 100%;
                 display: flex;
@@ -106,8 +106,8 @@
             <div class="term" id="term"></div>
         </div>
         <script>
-            //To-do: implement clear, gui, projects, experience
-            const COMMANDS = ["about", "help", "clear", "theme"];
+            //To-do: implement gui, experience
+            const COMMANDS = ["help", "about", "experience", "projects", "skills", "clear", "theme"];
             const themes = new Map();
             themes.set("matrix", ["#000", "#b7ffb7", "#7ccc7c","22ff88", "#00ff99", "#b7ffb7"]);
             themes.set("eink", ["#fff", "#000", "#ccc", "#000", "#000", "#000"]);
@@ -187,7 +187,7 @@
                 //After theme, a space must follow
                 //e.g. theme set matrix
                 if (!(cmd[0] === " ")) {
-                    print(["theme: no operation specified (type theme --help for help)"]);
+                    print(["theme: no operation specified (type theme help for help)"]);
                     return;
                 }
                 //Remove space from front
@@ -225,7 +225,7 @@
                     print(["usage: theme <operation> [...] <br> operations: <ul><li>theme help</li> <li>theme set [options]</li> <li>theme list</li> </ul>"]); 
                 }
                 else {
-                    print([`theme: ${cmd} not valid (type theme --help for help)`]);
+                    print([`theme: ${cmd} not valid (type theme help for help)`]);
                 }
             }
 
@@ -246,6 +246,69 @@
                     "<strong>Projects:</strong>",
                "<ul><li>Classifying Mathematical Information with LLM's</li><li>E-Ink Monitor Compatible Linux Interface</li></ul>"]);
             }
+            function experience() {
+                //header
+                let output = "<strong>Experience:</strong>";
+                //Start of experience list
+                output += "<ul>";
+                //experience 1
+                output += "<li>Teaching Assistant at Colgate University";
+                //bullets about experience 1 
+                output += "<ul><li> stuff I did </li><li> more stuff I did </li></ul>";
+                //experience 2
+                output += "</li><li>Research Assistant at Colgate University";
+                //bullets about experience 2
+                output += "<ul><li>stuff I did</li><li>more stuff I did</li></ul>";
+                //experience 3
+                output += "</li><li>Software Engineering Intern at Ohana";
+                //bullets about experience 3
+                output += "<ul><li>stuff I did</li><li>more stuff I did</li></ul>";
+                //experience 4
+                output += "</li><li>Audio Engineering Intern at Moonlight Mile Recording";
+                //bullets about experience 4
+                output += "<ul><li>stuff I did</li><li>more stuff I did</li></ul>";
+                //end of experience list
+                output += "</ul>";
+                print([output]);
+               }
+
+            function projects() {
+                //header
+                let output = "<strong>Projects:</strong>";
+                //Start of projects list
+                output += "<ul>";
+                //project 1
+                output += "<li>Classifying Mathematical Information with LLM's";
+                //bullets about project 1
+                output += "<ul><li> stuff I did </li><li> more stuff I did </li></ul>";
+                //project 2
+                output += "</li><li>E-Ink Monitor Compatible Linux Interface";
+                //bullets about project 2
+                output += "<ul><li>stuff I did</li><li>more stuff I did</li></ul>";
+                //end of projects list
+                output += "</ul>"
+                print([output]);
+               }
+
+                function skills() {
+                //header
+                let output = "<strong>Skills:</strong>";
+                //Start of skills list
+                output += "<ul>";
+                //Languages
+                output += "<li>Languages";
+                //List of languages
+                    output += "<ul><li> Python </li><li> JavaScript </li><li>HTML/CSS</li> <li>C/C++</li></ul>";
+                //Tools
+                output += "</li><li>Tools";
+                //List of tools
+                    output += "<ul><li>Git</li><li>Linux</li><li>Vim</li><li>Bash</li><li>Jupyter Notebook</li></ul>";
+                //end of skills list
+                output += "</ul>"
+                print([output]);
+               }
+
+
 
             function clear() {
                 for (let i = 1; i <= id; i++) {
@@ -257,7 +320,7 @@
 
             function runCommand(cmd) {
                 errorMsg = [`${cmd.value}: command not found`];
-                //Allow white space at end and beginning of command
+                //Allow white space at end and begin'ning of command
                 let cmdText = cmd.value.trim();
 
                 if (cmdText == "help") {
@@ -272,6 +335,15 @@
                 }
                 else if (cmdText == "clear") {
                    clear(); 
+                }
+                else if (cmdText == "projects") {
+                    projects();
+                }
+                else if (cmdText == "experience"){
+                    experience();
+                }
+                else if (cmdText == "skills") {
+                    skills();
                 }
                 else {
                     print(errorMsg);
