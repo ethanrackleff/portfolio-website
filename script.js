@@ -134,9 +134,9 @@
             function about() {
                 print(["I am a current Math major with minors in Computer Science and Economics at Colgate University expected to graduate in December 2025.", 
                     "<strong>Experience:</strong>", 
-                    "<ul><li>Teaching Assistant at <i>Colgate University</i></li><li>Research Assistant at <i>Colgate University</i></li><li>Software Engineering Intern at <i>Ohana</i></li><li>Audio Engineer Intern at <i>Moonlight Mile Recording</i></li></ul>",
+                    "<ul><li>Research and Teaching Assistant at <i>Colgate University</i></li><li>Research Assistant at <i>Colgate University</i></li><li>Software Engineering Intern at <i>Ohana</i></li><li>Audio Engineer Intern at <i>Moonlight Mile Recording</i></li></ul>",
                     "<strong>Projects:</strong>",
-               "<ul><li>Classifying Mathematical Information with LLM's</li><li>E-Ink Monitor Compatible Linux Interface</li></ul>"]);
+               "<ul><li>Classifying Mathematical Information with LLM's</li><li>E-Ink Monitor Compatible Linux Interface</li><li>Sway Screen Time Application</li><li>Breadboard guitar distortion effect</li></ul>"]);
             }
             function experience() {
                 //header
