@@ -132,10 +132,10 @@
             }
 
             function about() {
-                print(["I am a current Math major with minors in Computer Science and Economics at Colgate University expected to graduate in December 2025.", 
+                print(["I am a current Computer Science major with minors in Mathematics and Economics at Colgate University expected to graduate in December 2025.", 
                     "<strong>Experience:</strong>", 
-                    "<ul><li>Research and Teaching Assistant at <i>Colgate University</i></li><li>Research Assistant at <i>Colgate University</i></li><li>Software Engineering Intern at <i>Ohana</i></li><li>Audio Engineer Intern at <i>Moonlight Mile Recording</i></li></ul>",
-                    "<strong>Projects:</strong>",
+                    "<ul><li>Research and Teaching Assistant at <i>Colgate University</i></li><li>Research Assistant at <i>Colgate University</i></li><li>Software Engineering Intern at <i>Ohana</i></li><li>Audio Engineer Intern at <i>Moonlight Mile Recording</i></li><li>Digital Music Production Instructor at <i>Blair Academy</i></li></ul>",
+                    "<strong>Personal Projects:</strong>",
                "<ul><li>Classifying Mathematical Information with LLM's</li><li>E-Ink Monitor Compatible Linux Interface</li><li>Sway Screen Time Application</li><li>Breadboard guitar distortion effect</li></ul>"]);
             }
             function experience() {
@@ -144,39 +144,58 @@
                 //Start of experience list
                 output += "<ul>";
                 //experience 1
-                output += "<li>Teaching Assistant at Colgate University";
+                output += "<li><strong>Research and Teaching Assistant</strong> at <i>Colgate University, Office of Undergraduate Scholars</i>";
                 //bullets about experience 1 
-                output += "<ul><li> stuff I did </li><li> more stuff I did </li></ul>";
+                output += "<ul><li>Led study sessions for 12 freshmen in the Undergraduate Scholars Program for The History of Mathematics</li><li>Improved the accessibility of complex concepts for students with various technical backgrounds</li><li>Researched and assisted in writing the rough draft for the course textbook using LaTeX</li></ul>";
                 //experience 2
-                output += "</li><li>Research Assistant at Colgate University";
+                output += "</li><li><strong>Research Assistant</strong> at <i>Colgate University</i>";
                 //bullets about experience 2
-                output += "<ul><li>stuff I did</li><li>more stuff I did</li></ul>";
+                output += "<ul><li>Collaborated with a research team to solve complex problems in Computational Algebraic Geometry</li><li>Programmed pattern identifying algorithms for bipartite graphs using Python and Macaulay2</li><li>Presented findings at NASC Fall poster session and Colgate's summer research poster symposium</li></ul>";
                 //experience 3
-                output += "</li><li>Software Engineering Intern at Ohana";
+                output += "</li><li><strong>Software Engineering Intern</strong> at <i>Ohana</i>";
                 //bullets about experience 3
-                output += "<ul><li>stuff I did</li><li>more stuff I did</li></ul>";
+                output += "<ul><li>Led front end development and worked alongside the co-founders for Ohana, an online marketplace</li><li>Developed full-feature web pages, being used by over 15,000 monthly users, with JavaScript, HTML, and CSS</li>Implemented identity verification to mitigate the risk of scams and fraudulent listings via Stripe’s API<li>Contributed to fundraising strategy that secured $625k in pre-seed funding from Neo}}</li></ul>";
                 //experience 4
-                output += "</li><li>Audio Engineering Intern at Moonlight Mile Recording";
+                output += "</li><li><strong>Audio Engineer Intern</strong> at <i>Moonlight Mile Recording</i>";
                 //bullets about experience 4
-                output += "<ul><li>stuff I did</li><li>more stuff I did</li></ul>";
+                output += "<ul><li>Worked alongside 8 diverse teams to mix and master new music whilst streamlining the recording process</li><li>Managed and programmed software and hardware synthesizers incorporated into released recordings</li></ul>";
+                //experience 5
+                output += "</li><li><strong>Digital Music Production Instructor</strong> at <i>Blair Academy</i>";
+                //bullets about experience 5
+                output += "<ul><li>Taught 22 students music theory and how to use Logic Pro X to make professional-quality electronic music</li><li>Designed a curriculum that ran 8 hours a week, inspiring 3 students to pursue digital music in university</li></ul>";
                 //end of experience list
                 output += "</ul>";
                 print([output]);
                }
 
+/*
+            function involvementAndActivities() {
+                let output = "<strong>Involvement and Activities</strong>";
+                output += "<ul>";
+                output += "</ul>";
+            }
+*/
             function projects() {
                 //header
-                let output = "<strong>Projects:</strong>";
+                let output = "<strong>Personal Projects:</strong>";
                 //Start of projects list
                 output += "<ul>";
                 //project 1
-                output += "<li>Classifying Mathematical Information with LLM's";
+                output += "<li><strong>Screen Time Application for Sway Window Manager</strong>";
                 //bullets about project 1
-                output += "<ul><li> stuff I did </li><li> more stuff I did </li></ul>";
+                output += "<ul><li>Engineered a Terminal User Interface application using ncurses for the Wayland window manager, Sway, that tracks and manages application usage to minimize digital distraction</li><li>Tracks app usage with SQLite and visualizes weekly/daily data with configurable time limits and blocking features</li><li>Utilized multithreading to asynchronously monitor app focus changes via swaymsg IPC while maintaining responsive UI and automatically closing blocked applications when limits exceeded</li></ul>";
                 //project 2
-                output += "</li><li>E-Ink Monitor Compatible Linux Interface";
+                output += "<li><strong>E-ink Accessibility Configuration for Arch Linux</strong>";
                 //bullets about project 2
-                output += "<ul><li>stuff I did</li><li>more stuff I did</li></ul>";
+                output += "<ul><li> Developed comprehensive configuration optimizing laptop experience on black-and-white E-ink displays for minimal eye-strain and focus</li><li>Automated color scheme switching with bash commands and shell scripting to transform IDE and desktop</li></ul>";
+                //project 3
+                output += "<li><strong>Classifying Mathematical Information with LLMs</strong>";
+                //bullets about project 3
+                output += "<ul><li>Analyzed the classification accuracy of LLMs on mathematical content using Python and Jupyter Notebook</li><li>Findings presented at a Colgate University NLP conference in a research poster and paper</li></ul>";
+                //project 4
+                output += "</li><li><strong>Guitar Distortion/Saturation Circuit</strong>";
+                //bullets about project 4
+                output += "<ul><li>Designed and built custom guitar effect on a  breadboard using op-amps and high/low pass filters</li><li>Applied understanding of DC/AC current and signal processing principles to create functional distortion effect</li></ul>";
                 //end of projects list
                 output += "</ul>"
                 print([output]);
@@ -190,11 +209,11 @@
                 //Languages
                 output += "<li>Languages";
                 //List of languages
-                    output += "<ul><li> Python </li><li> JavaScript </li><li>HTML/CSS</li> <li>C/C++</li></ul>";
+                    output += "<ul><li> Python (Intermediate) </li><li> JavaScript (Intermediate) </li><li>HTML/CSS (Intermediate)</li> <li>C/C++ (Advanced) </li> <li>Java (Intermediate)</li> <li>Lua (Beginner) </li> <li>Kotlin (Beginner)</li></ul>";
                 //Tools
                 output += "</li><li>Tools";
                 //List of tools
-                    output += "<ul><li>Git</li><li>Linux</li><li>Vim</li><li>Bash</li><li>Jupyter Notebook</li></ul>";
+                    output += "<ul><li>Git</li><li>Linux</li><li>Vim</li><li>SQL</li><li>postgreSQL</li><li>SQLite</li><li>Figma</li><li>Jupyter Notebook</li><li>Agile development</li></ul>";
                 //end of skills list
                 output += "</ul>"
                 print([output]);
