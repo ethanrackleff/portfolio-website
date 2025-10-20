@@ -24,8 +24,8 @@
                 place-items: center;
             }
             .screen {
-                width: min(600px, 92vw);
-                height: min(600px, 80vh);
+                width: min(800px, 92vw);
+                height: min(800px, 80vh);
                 background-color: var(--bg);
                 border: 2px solid var(--text);
                 filter: drop-shadow(5px 5px var(--text));

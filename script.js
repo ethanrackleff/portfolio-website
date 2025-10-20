@@ -1,5 +1,5 @@
             //To-do: implement gui, experience
-            const COMMANDS = ["help", "about", "experience", "projects", "skills", "clear", "theme"];
+            const COMMANDS = ["help", "about", "experience", "projects", "skills", "clear", "theme", "activites", "interests"];
             const themes = new Map();
             themes.set("matrix", ["#000", "#b7ffb7", "#7ccc7c","22ff88", "#00ff99", "#b7ffb7"]);
             themes.set("eink", ["#fff", "#000", "#ccc", "#000", "#000", "#000"]);
@@ -168,13 +168,18 @@
                 print([output]);
                }
 
-/*
+
             function involvementAndActivities() {
                 let output = "<strong>Involvement and Activities</strong>";
                 output += "<ul>";
+                output += "<li><strong>Unlauncher</strong> - <i>Open Source Contributor</i>";
+                output += "<ul><li>Contributing accessibility features to open-source Android launcher based on user  feedback</li><li>Implementing dynamic font-size adjustment in Kotlin to improve accessibility for users with visual impairments</li><li>Active daily user and contributor focused on enhancing the user experience</li></ul></li>";
+                /*output += "<li><strong>Hamilton Central School Coding Club</strong> - <i>Volunteer Instructor</i>";
+                output += "<ul><li>Teach coding fundamentals to third and fourth grade students using Scratch and Edison robots</li><li>Develop age-appropriate curriculum introducing computational thinking and robotics</li></ul></li>";*/
                 output += "</ul>";
+                print([output]);
             }
-*/
+
             function projects() {
                 //header
                 let output = "<strong>Personal Projects:</strong>";
@@ -219,7 +224,10 @@
                 print([output]);
                }
 
-
+                function interests() {
+                    let output = "When I'm not coding, you can find me hiking, long-distance running, biking, or exploring philosophy and meditation.";
+                    print([output]);
+                }
 
             function clear() {
                 for (let i = 1; i <= id; i++) {
@@ -284,6 +292,12 @@
                 }
                 else if (cmdText == "skills") {
                     skills();
+                }
+                else if (cmdText == "activities") {
+                    involvementAndActivities();
+                }
+                else if (cmdText == "interests") {
+                    interests();
                 }
                 /*else if (cmdText == "gui") {
                     gui();
