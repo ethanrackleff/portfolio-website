@@ -1,12 +1,4 @@
 # Terminal Portfolio Website
 ### Description
-### To-do
-##### Getting gui command working
-[ ] Complete gui function for folders
-[ ] Add terminal icon to gui function
-[ ] Style gui interface
-[ ] Animate terminal close
-##### Info
-[ ] Move about, projects, experience to JSON files
-[ ] Implement JSON into the website
+Hey! Thanks for checking out my portfolio website. It's just a fun terminal limited to commands about my experience. and interests. I interact with a terminal everyday, so it was a natural choice as the medium to illustrate my work.
 
